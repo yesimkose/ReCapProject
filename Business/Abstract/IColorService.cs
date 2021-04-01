@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.Utilities.Result;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,11 @@ namespace Business.Abstract
 {
     public interface IColorService
     {
-        List<Color> GetAll();
-        Color GetByColorId(int colorId);
-        void Insert(Color colorId);
-        void Delete(Color colorId);
-        void Update(Color colorId);
+        IDataResult< List<Color>> GetAll();
+        IDataResult<Color> GetByColorId(int colorId);
+        IResult Insert(Color colorId);
+        IResult Delete(Color colorId);
+        IResult Update(Color colorId);
 
     }
 }

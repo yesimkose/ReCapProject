@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -15,45 +16,50 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return (List<Car>)_carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), "");
+
         }
 
-        public Car GetCarsByCarId(int id)
+        public IDataResult<Car> GetCarsByCarId(int id)
         {
-            return _carDal.Get(c => c.CarId == id);
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id);
         }
 
         
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
             if (car.Description.Length > 2 && car.DailyPrice > 0)
             {
                 //eğer ki iş kodlarından geçerse,
                 _carDal.Add(car);//DataAccess katmanına bağlanacağız.
+                return new SuccessResult("eklendi");
             }
             else
             {
-                Console.WriteLine("kaydetme basarisiz, lutfen urun aciklamasini 2 karakterden buyuk ve gunluk masrafi sifirdan buyuk girin");
+                return new ErrorResult("Tekrar deneyin");
             }
         }
 
         
 
-        public void Insert(Car carId)
+        public IResult Insert(Car carId)
         {
             _carDal.Add(carId);
+            return new SuccessResult("Eklendi");
         }
 
-        public void Delete(Car carId)
+        public IResult Delete(Car carId)
         {
             _carDal.Delete(carId);
+            return new SuccessResult("Silindi");
         }
 
-        public void Update(Car carId)
+        public IResult Update(Car carId)
         {
             _carDal.Update(carId);
+            return new SuccessResult("Eklendi");
         }
 
         
