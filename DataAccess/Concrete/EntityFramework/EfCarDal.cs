@@ -14,17 +14,30 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<CarDetailDto> GetCarDetailDtos()
         {
-            using (ReCapContext context=new ReCapContext())
+            using (ReCapContext context = new ReCapContext())
             {
                 var result = from c in context.Cars
                              join b in context.Brands
-                             on c.BrandId equals b.ColorId
+                             on c.BrandId equals b.BrandId
                              join color in context.Colors
-                             on c.ColorId equals color.Id
-                             select new CarDetailDto { CarName = c.Description, BrandName = b.BrandName, ColorName = color.ColorName, DailyPrice = c.DailyPrice };
+                             on c.ColorId equals color.ColorsId
+                             select new CarDetailDto
+                             {
+                                 CarName = c.CarName,
+                                 BrandName = b.BrandName,
+                                 ColorsName = color.ColorsName,
+                                 DailyPrice = c.DailyPrice
+                             };
 
                 return result.ToList();
+
+
             }
+        }
+
+        public List<CarDetailDto> GetCarDetailDtos(Expression<Func<CarDetailDto, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
     }
 }
