@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,11 +19,10 @@ namespace Business.Concrete
         }
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), "");
-
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
         }
 
-        public IDataResult<Car> GetCarsByCarId(int id)
+        public IDataResult<Car> GetByCarId(int id)
         {
             return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
         }
