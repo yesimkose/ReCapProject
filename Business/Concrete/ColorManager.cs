@@ -20,11 +20,16 @@ namespace Business.Concrete
             _colorDal.Delete(colorId);
             return new SuccessResult("Silindi");
         }
-        
+
         public IDataResult<List<Color>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_colorDal.GetAll());
+            throw new NotImplementedException();
         }
+
+        //public IDataResult<List<Color>> GetAll()
+        //{
+        //    return new SuccessDataResult<List<Car>>(_colorDal.GetAll());
+        //}
 
         public IDataResult<Color> GetByColorId(int colorId)
         {

@@ -23,16 +23,16 @@ namespace Business.Concrete
             return new SuccessResult("Silindi");
         }
 
-        public IDataResult<List<Rentals>> GetAll()
-        {
-            return new SuccessDataResult<List<Rentals>>(_rentalDal.GetAll());
-        }
+        //public IDataResult<List<Rentals>> GetAll()
+        //{
+        //    return new SuccessDataResult<List<Rentals>>(_rentalDal.GetAll());
+        //}
 
-        public IDataResult<List<Rentals>> GetAllById(int id)
-        {
+        //public IDataResult<List<Rentals>> GetAllById(int id)
+        //{
 
-            return new SuccessDataResult<List<Rentals>>(_rentalDal.GetAll(p => p.Id == id));
-        }
+        //    return new SuccessDataResult<List<Rentals>>(_rentalDal.GetAll(p => p.Id == id));
+        //}
 
         public IResult Add(Rentals rental)
         {
@@ -53,6 +53,16 @@ namespace Business.Concrete
         {
             _rentalDal.Update(rental);
             return new SuccessResult("Güncellendi");
+        }
+
+        public IDataResult<List<Rentals>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Rentals>> GetAllById(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

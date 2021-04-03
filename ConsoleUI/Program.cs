@@ -23,10 +23,10 @@ namespace ConsoleUI
             void list()
             {
                 Console.WriteLine("Eklendi" + Environment.NewLine);
-                foreach (var car in carManager.GetAll().Data)
-                {
-                    Console.WriteLine(car.CarId + "-- " + car.CarName + "-- " + car.DailyPrice + "$ " + car.Description);
-                }
+                //foreach (var car in carManager.GetAll().Data)
+                //{
+                //    Console.WriteLine(car.CarId + "-- " + car.CarName + "-- " + car.DailyPrice + "$ " + car.Description);
+                //}
             }
         }
 

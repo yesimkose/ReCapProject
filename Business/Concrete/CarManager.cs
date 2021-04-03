@@ -17,15 +17,15 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-        public IDataResult<List<Car>> GetAll()
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
-        }
+        //public IDataResult<List<Car>> GetAll()
+        //{
+        //    return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarListed);
+        //}
 
-        public IDataResult<Car> GetByCarId(int id)
-        {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
-        }
+        //public IDataResult<Car> GetByCarId(int id)
+        //{
+        //    return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.CarId == id));
+        //}
 
         
         public IResult Add(Car car)
@@ -42,7 +42,10 @@ namespace Business.Concrete
             }
         }
 
-        
+        public object GetAll()
+        {
+            throw new NotImplementedException();
+        }
 
         public IResult Insert(Car carId)
         {
@@ -62,6 +65,14 @@ namespace Business.Concrete
             return new SuccessResult("Eklendi");
         }
 
-        
+        IDataResult<List<Car>> ICarService.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<Car> GetByCarId(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
