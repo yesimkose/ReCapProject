@@ -11,10 +11,10 @@ namespace WepAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class CustomerController : ControllerBase
     {
-        ICustomersService _customerService;
-        public CustomersController(ICustomersService customerService)
+        ICustomerService _customerService;
+        public CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;
         }
@@ -32,7 +32,7 @@ namespace WepAPI.Controllers
 
 
         [HttpPost("add")]
-        public IActionResult Add(Customers customer)
+        public IActionResult Add(Customer customer)
         {
             var result = _customerService.Add(customer);
             if (result.Success)
@@ -43,7 +43,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Customers customer)
+        public IActionResult Update(Customer customer)
         {
             var result = _customerService.Update(customer);
             if (result.Success)
@@ -53,7 +53,7 @@ namespace WepAPI.Controllers
             return BadRequest(result);
         }
         [HttpPost("delete")]
-        public IActionResult Delete(Customers customer)
+        public IActionResult Delete(Customer customer)
         {
             var result = _customerService.Delete(customer);
             if (result.Success)

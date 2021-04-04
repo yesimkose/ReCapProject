@@ -44,5 +44,7 @@ namespace Business.Constants
         public static string CarCheckImageLimited { get; internal set; }
         public static string CarImageDeleted { get; internal set; }
         public static string CarImageAdded { get; internal set; }
+        public static string GetUser { get; internal set; }
+        public static string CarImagesListed { get; internal set; }
     }
 }

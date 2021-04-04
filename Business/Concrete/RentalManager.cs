@@ -8,16 +8,16 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class RentalsManager:IRentalsService
+    public class RentalManager:IRentalService
     {
-        IRentalsDal _rentalDal;
+        IRentalDal _rentalDal;
 
-        public RentalsManager(IRentalsDal rentalDal)
+        public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
         }
 
-        public IResult Delete(Rentals rental)
+        public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
             return new SuccessResult("Silindi");
@@ -34,7 +34,7 @@ namespace Business.Concrete
         //    return new SuccessDataResult<List<Rentals>>(_rentalDal.GetAll(p => p.Id == id));
         //}
 
-        public IResult Add(Rentals rental)
+        public IResult Add(Rental rental)
         {
 
             if (rental.ReturnDate == null)
@@ -49,18 +49,18 @@ namespace Business.Concrete
 
         }
 
-        public IResult Update(Rentals rental)
+        public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
             return new SuccessResult("Güncellendi");
         }
 
-        public IDataResult<List<Rentals>> GetAll()
+        public IDataResult<List<Rental>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<Rentals>> GetAllById(int Id)
+        public IDataResult<List<Rental>> GetAllById(int Id)
         {
             throw new NotImplementedException();
         }

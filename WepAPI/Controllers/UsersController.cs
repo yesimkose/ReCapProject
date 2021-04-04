@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,9 @@ namespace WepAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        IUsersService _userService;
+        IUserService _userService;
 
-        public UsersController(IUsersService userService)
+        public UsersController(IUserService userService)
         {
             _userService = userService;
         }
@@ -32,7 +33,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Users user)
+        public IActionResult Add(User user)
         {
             var result = _userService.Add(user);
             if (result.Success)
@@ -43,7 +44,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Users user)
+        public IActionResult Update(User user)
         {
             var result = _userService.Update(user);
             if (result.Success)
@@ -54,7 +55,7 @@ namespace WepAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Users user)
+        public IActionResult Delete(User user)
         {
             var result = _userService.Delete(user);
             if (result.Success)

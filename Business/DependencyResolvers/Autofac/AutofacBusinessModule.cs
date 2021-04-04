@@ -25,14 +25,14 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ColorManager>().As<IColorService>().SingleInstance();
             builder.RegisterType<EfColorDal>().As<IColorDal>().SingleInstance();
 
-            builder.RegisterType<CustomersManager>().As<ICustomersService>().SingleInstance();
-            builder.RegisterType<EfCustomersDal>().As<ICustomersDal>().SingleInstance();
+            builder.RegisterType<CustomerManager>().As<ICustomerService>().SingleInstance();
+            builder.RegisterType<EfCustomersDal>().As<ICustomerDal>().SingleInstance();
 
-            builder.RegisterType<RentalsManager>().As<IRentalsService>().SingleInstance();
-            builder.RegisterType<EfRentalsDal>().As<IRentalsDal>().SingleInstance();
+            builder.RegisterType<RentalManager>().As<IRentalService>().SingleInstance();
+            builder.RegisterType<EfRentalsDal>().As<IRentalDal>().SingleInstance();
 
-            builder.RegisterType<UsersManager>().As<IUsersService>().SingleInstance();
-            builder.RegisterType<EfUsersDal>().As<IUsersDal>().SingleInstance();
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            builder.RegisterType<EfUsersDal>().As<IUserDal>().SingleInstance();
 
             builder.RegisterType<CarImageManager>().As<ICarImageService>().SingleInstance();
             builder.RegisterType<EfCarImageDal>().As<ICarImageDal>().SingleInstance();

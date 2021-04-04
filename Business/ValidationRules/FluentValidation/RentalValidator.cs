@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Business.ValidationRules.FluentValidation
 {
-    public class RentalValidator: AbstractValidator<Rentals>
+    public class RentalValidator: AbstractValidator<Rental>
     {
         public RentalValidator()
         {

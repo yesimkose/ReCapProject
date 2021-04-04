@@ -8,16 +8,16 @@ using System.Text;
 
 namespace Business.Concrete
 {
-    public class CustomersManager:ICustomersService
+    public class CustomerManager:ICustomerService
     {
-        ICustomersDal _customerDal;
+        ICustomerDal _customerDal;
 
-        public CustomersManager(ICustomersDal customerDal)
+        public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
         }
 
-        public IResult Delete(Customers customer)
+        public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
             return new SuccessResult("Silindi");
@@ -34,24 +34,24 @@ namespace Business.Concrete
         //    return new SuccessDataResult<List<Customers>>(_customerDal.GetAll(p => p.UserId == id));
         //}
 
-        public IResult Add(Customers customer)
+        public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
             return new SuccessResult("Eklendi");
         }
 
-        public IResult Update(Customers customer)
+        public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
             return new SuccessResult("Güncellendi");
         }
 
-        public IDataResult<List<Customers>> GetAll()
+        public IDataResult<List<Customer>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<Customers>> GetAllById(int Id)
+        public IDataResult<List<Customer>> GetAllById(int Id)
         {
             throw new NotImplementedException();
         }
