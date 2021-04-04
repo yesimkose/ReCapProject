@@ -41,5 +41,8 @@ namespace Business.Constants
 
         public static string MaintenanceTime = "Sistem Bakımda...";
 
+        public static string CarCheckImageLimited { get; internal set; }
+        public static string CarImageDeleted { get; internal set; }
+        public static string CarImageAdded { get; internal set; }
     }
 }
