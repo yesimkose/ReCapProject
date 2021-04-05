@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -46,5 +47,6 @@ namespace Business.Constants
         public static string CarImageAdded { get; internal set; }
         public static string GetUser { get; internal set; }
         public static string CarImagesListed { get; internal set; }
+        public static string AuthorizationDenied { get; internal set; }
     }
 }
